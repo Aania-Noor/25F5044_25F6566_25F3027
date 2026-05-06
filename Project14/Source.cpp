@@ -357,7 +357,7 @@ public:
             King* k = dynamic_cast<King*>(grid[toRow][toCol]);
             if (k != nullptr) kingGone = true;
             delete grid[toRow][toCol];
-        }
+        }       
 
         grid[toRow][toCol] = p;
         grid[fromRow][fromCol] = nullptr;
