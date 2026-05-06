@@ -1,0 +1,14 @@
+﻿  Source.cpp
+C:\Users\Aania\Documents\Project14\Project14\Source.cpp(494,62): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+C:\Users\Aania\Documents\Project14\Project14\Source.cpp(494,62): warning C4244:         with
+C:\Users\Aania\Documents\Project14\Project14\Source.cpp(494,62): warning C4244:         [
+C:\Users\Aania\Documents\Project14\Project14\Source.cpp(494,62): warning C4244:             T=float
+C:\Users\Aania\Documents\Project14\Project14\Source.cpp(494,62): warning C4244:         ]
+C:\Users\Aania\Documents\Project14\Project14\Source.cpp(494,52): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+C:\Users\Aania\Documents\Project14\Project14\Source.cpp(494,52): warning C4244:         with
+C:\Users\Aania\Documents\Project14\Project14\Source.cpp(494,52): warning C4244:         [
+C:\Users\Aania\Documents\Project14\Project14\Source.cpp(494,52): warning C4244:             T=float
+C:\Users\Aania\Documents\Project14\Project14\Source.cpp(494,52): warning C4244:         ]
+C:\Users\Aania\Documents\Project14\Project14\Source.cpp(495,48): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Aania\Documents\Project14\Project14\Source.cpp(495,34): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  Project14.vcxproj -> C:\Users\Aania\Documents\Project14\x64\Debug\Project14.exe
