@@ -119,7 +119,31 @@ public:
 
     bool checkMove(int toRow, int toCol, Piece* board[8][8]) override
     {
-        //write
+        int rd = toRow - row;
+        int cd = toCol - col;
+        if (rd < 0) rd = -rd;
+        if (cd < 0) cd = -cd;
+
+        // bishop only moves diagonally so row diff must equal col diff
+        if (rd != cd || rd == 0) return false;
+
+        if (board[toRow][toCol] != nullptr)
+            if (board[toRow][toCol]->isWhite() == white) return false;
+
+        // step direction
+        int rStep = (toRow > row) ? 1 : -1;
+        int cStep = (toCol > col) ? 1 : -1;
+
+        int r = row + rStep;
+        int c = col + cStep;
+        while (r != toRow || c != toCol)
+        {
+            if (board[r][c] != nullptr) return false;
+            r += rStep;
+            c += cStep;
+        }
+
+        return true;
     }
 
     wstring getSymbol() override
