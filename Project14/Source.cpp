@@ -88,7 +88,19 @@ public:
 
     bool checkMove(int toRow, int toCol, Piece* board[8][8]) override
     {
-       //write
+        int rd = toRow - row;
+        int cd = toCol - col;
+        if (rd < 0) rd = -rd;
+        if (cd < 0) cd = -cd;
+
+        // knight moves in L shape, 2 squares one way and 1 the other
+        bool lShape = (rd == 2 && cd == 1) || (rd == 1 && cd == 2);
+        if (!lShape) return false;
+
+        if (board[toRow][toCol] != nullptr)
+            if (board[toRow][toCol]->isWhite() == white) return false;
+
+        return true;
     }
 
     wstring getSymbol() override
