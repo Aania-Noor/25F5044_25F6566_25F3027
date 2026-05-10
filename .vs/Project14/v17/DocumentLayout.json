@@ -14,12 +14,8 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 1,
           "Children": [
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{28836128-fc2c-11d2-a433-00c04f72d18a}"
-            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
@@ -32,7 +28,7 @@
               "RelativeDocumentMoniker": "Project14\\Source.cpp",
               "ToolTip": "C:\\Users\\Aania\\Documents\\Project14\\Project14\\Source.cpp",
               "RelativeToolTip": "Project14\\Source.cpp",
-              "ViewState": "AgIAAEsAAAAAAAAAAAAAAOkAAAAOAAAAAAAAAA==",
+              "ViewState": "AgIAAHEAAAAAAAAAAAAiwIoAAAAoAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2026-05-05T19:20:56.461Z",
               "EditorCaption": ""

@@ -163,7 +163,53 @@ public:
 
     bool checkMove(int toRow, int toCol, Piece* board[8][8]) override
     {
-       //write
+        if (toRow == row && toCol == col) return false;
+
+        if (board[toRow][toCol] != nullptr)
+            if (board[toRow][toCol]->isWhite() == white) return false;
+
+        int rd = toRow - row;
+        int cd = toCol - col;
+        if (rd < 0) rd = -rd;
+        if (cd < 0) cd = -cd;
+
+        bool straight = (toRow == row || toCol == col);
+        bool diagonal = (rd == cd);
+
+        if (!straight && !diagonal) return false;
+
+        if (straight)
+        {
+            if (toRow == row)
+            {
+                int s = col, e = toCol;
+                if (s > e) { int t = s; s = e; e = t; }
+                for (int i = s + 1; i < e; i++)
+                    if (board[row][i] != nullptr) return false;
+            }
+            else
+            {
+                int s = row, e = toRow;
+                if (s > e) { int t = s; s = e; e = t; }
+                for (int i = s + 1; i < e; i++)
+                    if (board[i][col] != nullptr) return false;
+            }
+        }
+        else
+        {
+            int rStep = (toRow > row) ? 1 : -1;
+            int cStep = (toCol > col) ? 1 : -1;
+            int r = row + rStep;
+            int c = col + cStep;
+            while (r != toRow || c != toCol)
+            {   
+                if (board[r][c] != nullptr) return false;
+                r += rStep;
+                c += cStep;
+            }
+        }
+
+        return true;
     }
 
     wstring getSymbol() override
