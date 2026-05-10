@@ -442,6 +442,36 @@ public:
         {
 
 
+            int result = board.movePiece(selRow, selCol, clickRow, clickCol);
+            selected = false;
+
+            if (result == 2)
+            {
+                over = true;
+                if (whiteTurn)
+                    msg = L"White Wins! King Captured!";
+                else
+                    msg = L"Black Wins! King Captured!";
+            }
+            else if (result == 1)
+            {
+                whiteTurn = !whiteTurn;
+                if (whiteTurn)
+                    msg = L"White's Turn";
+                else
+                    msg = L"Black's Turn";
+            }
+            else
+            {
+                // invalid move, check if clicked another own piece
+                Piece* p = board.grid[clickRow][clickCol];
+                if (p != nullptr && p->isWhite() == whiteTurn)
+                {
+                    selected = true;
+                    selRow = clickRow;
+                    selCol = clickCol;
+                }
+            }
         }
     }
 
