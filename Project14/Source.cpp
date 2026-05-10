@@ -259,7 +259,31 @@ public:
 
     bool checkMove(int toRow, int toCol, Piece* board[8][8]) override
     {
-       //wrtie 
+        // white goes up (row decreases), black goes down (row increases)
+        int dir = white ? -1 : 1;
+        int startRow = white ? 6 : 1;
+
+        // one step forward into empty square
+        if (toCol == col && toRow == row + dir && board[toRow][toCol] == nullptr)
+            return true;
+
+        // two steps forward from starting row if both squares are empty
+        if (toCol == col && row == startRow && toRow == row + 2 * dir)
+        {
+            if (board[row + dir][col] == nullptr && board[toRow][toCol] == nullptr)
+                return true;
+        }
+
+        // capture diagonally
+        int cd = toCol - col;
+        if (cd < 0) cd = -cd;
+        if (cd == 1 && toRow == row + dir && board[toRow][toCol] != nullptr)
+        {
+            if (board[toRow][toCol]->isWhite() != white)
+                return true;
+        }
+
+        return false;
     }
 
     wstring getSymbol() override
