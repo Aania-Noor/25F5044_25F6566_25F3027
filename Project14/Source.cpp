@@ -410,7 +410,12 @@ public:
                 if (event.type == sf::Event::MouseButtonPressed && !over)
                     handleClick(event.mouseButton.x, event.mouseButton.y);
             }
-
+            window.clear(sf::Color(30, 30, 30));
+            drawBoard(window);
+            drawPieces(window);
+            drawMsg(window);
+            window.display();
+        }
     }
 
     void handleClick(int mx, int my)
