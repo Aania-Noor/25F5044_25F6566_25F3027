@@ -317,7 +317,29 @@ public:
 
     void placePieces()
     {
-       //write
+        // black pieces at top
+        grid[0][0] = new Rook(0, 0, false);
+        grid[0][1] = new Knight(0, 1, false);
+        grid[0][2] = new Bishop(0, 2, false);
+        grid[0][3] = new Queen(0, 3, false);
+        grid[0][4] = new King(0, 4, false);
+        grid[0][5] = new Bishop(0, 5, false);
+        grid[0][6] = new Knight(0, 6, false);
+        grid[0][7] = new Rook(0, 7, false);
+        for (int c = 0; c < 8; c++)
+            grid[1][c] = new Pawn(1, c, false);
+
+        // white pieces at bottom
+        grid[7][0] = new Rook(7, 0, true);
+        grid[7][1] = new Knight(7, 1, true);
+        grid[7][2] = new Bishop(7, 2, true);
+        grid[7][3] = new Queen(7, 3, true);
+        grid[7][4] = new King(7, 4, true);
+        grid[7][5] = new Bishop(7, 5, true);
+        grid[7][6] = new Knight(7, 6, true);
+        grid[7][7] = new Rook(7, 7, true);
+        for (int c = 0; c < 8; c++)
+            grid[6][c] = new Pawn(6, c, true);
     }
 
     // tries to move piece, returns 0 = invalid, 1 = moved, 2 = king captured
