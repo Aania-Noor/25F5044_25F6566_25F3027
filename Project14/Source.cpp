@@ -420,7 +420,29 @@ public:
 
     void handleClick(int mx, int my)
     {
-       //write
+        if (my >= 640) return;
+
+        int clickCol = mx / tileSize;
+        int clickRow = my / tileSize;
+
+        if (clickRow < 0 || clickRow > 7 || clickCol < 0 || clickCol > 7)
+            return;
+
+        if (!selected)
+        {
+            Piece* p = board.grid[clickRow][clickCol];
+            if (p != nullptr && p->isWhite() == whiteTurn)
+            {
+                selected = true;
+                selRow = clickRow;
+                selCol = clickCol;
+            }
+        }
+        else
+        {
+
+
+        }
     }
 
     void drawBoard(sf::RenderWindow& window)
