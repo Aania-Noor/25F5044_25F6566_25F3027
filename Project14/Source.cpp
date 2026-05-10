@@ -39,7 +39,37 @@ public:
 
     bool checkMove(int toRow, int toCol, Piece* board[8][8]) override
     {
-       //write check move
+        // rook only moves in straight lines
+        if (toRow != row && toCol != col)
+            return false;
+
+        if (toRow == row && toCol == col)
+            return false;
+
+        // block if destination has same color piece
+        if (board[toRow][toCol] != nullptr)
+        {
+            if (board[toRow][toCol]->isWhite() == white)
+                return false;
+        }
+
+        // check squares between start and destination are empty
+        if (toRow == row)
+        {
+            int s = col, e = toCol;
+            if (s > e) { int t = s; s = e; e = t; }
+            for (int i = s + 1; i < e; i++)
+                if (board[row][i] != nullptr) return false;
+        }
+        else
+        {
+            int s = row, e = toRow;
+            if (s > e) { int t = s; s = e; e = t; }
+            for (int i = s + 1; i < e; i++)
+                if (board[i][col] != nullptr) return false;
+        }
+
+        return true;
     }
 
     wstring getSymbol() override
