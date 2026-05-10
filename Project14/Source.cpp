@@ -228,7 +228,19 @@ public:
 
     bool checkMove(int toRow, int toCol, Piece* board[8][8]) override
     {
-        //king
+        int rd = toRow - row;
+        int cd = toCol - col;
+        if (rd < 0) rd = -rd;
+        if (cd < 0) cd = -cd;
+
+        // king moves only 1 square in any direction
+        if (rd > 1 || cd > 1) return false;
+        if (toRow == row && toCol == col) return false;
+
+        if (board[toRow][toCol] != nullptr)
+            if (board[toRow][toCol]->isWhite() == white) return false;
+
+        return true;
     }
 
     wstring getSymbol() override
