@@ -396,7 +396,21 @@ public:
 
     void run()
     {
-      //write
+        sf::RenderWindow window(sf::VideoMode(640, 690), "Chess Game: OOP Project");
+        window.setFramerateLimit(60);
+
+        while (window.isOpen())
+        {
+            sf::Event event;
+            while (window.pollEvent(event))
+            {
+                if (event.type == sf::Event::Closed)
+                    window.close();
+
+                if (event.type == sf::Event::MouseButtonPressed && !over)
+                    handleClick(event.mouseButton.x, event.mouseButton.y);
+            }
+
     }
 
     void handleClick(int mx, int my)
